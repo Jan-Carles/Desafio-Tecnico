@@ -6,7 +6,7 @@
 --Só é nó interno (INNER) se o pointer não for NULL
 --Raiz (ROOT) só ver na imagem da árvore
 --Parece uma árvore B
-SELECT 
+SELECT DISTINCT
   resultado.node_id,
   resultado.categoria AS tipo_no --criando uma coluna temporária só para exibir oss ROOT, INNER< LEAF
 FROM (
@@ -18,8 +18,6 @@ FROM (
       WHEN n.pointer IS NULL THEN 'LEAF' --Se o pointer for NULL, é folha (LEAF)
       ELSE NULL
     END AS categoria
-  FROM nodes AS n --renomeando
-  GROUP BY n.node_id, n.pointer --Agrupa os registros por node_id e pointer
-) AS resultado
+	FROM nodes AS n --Renomeando
+) AS resultado 
 ORDER BY resultado.node_id; --Ordena de forma crescente
-
