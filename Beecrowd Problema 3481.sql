@@ -8,7 +8,7 @@
 --Parece uma árvore B
 SELECT DISTINCT
   resultado.node_id,
-  resultado.categoria AS tipo_no --criando uma coluna temporária só para exibir oss ROOT, INNER< LEAF
+  resultado.categoria AS tipo_no --criando uma coluna temporária só para exibir os ROOT, INNER e LEAF
 FROM (
   SELECT 
     n.node_id,
@@ -21,3 +21,4 @@ FROM (
 	FROM nodes AS n --Renomeando
 ) AS resultado 
 ORDER BY resultado.node_id; --Ordena de forma crescente
+
